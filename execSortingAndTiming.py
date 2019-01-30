@@ -1,4 +1,3 @@
-import os
 import time
 
 from insertionSort import *
@@ -22,7 +21,7 @@ class ExecSortingAndTiming:
         start = time.time()
         InsertionSort.insertion_sort_algo(list)
         end = time.time()
-        print("FileSize: " + length)
-        print(end - start)
-        print(count)
-        print("--------------------")
+        outfile = open("outfile.txt", "w")
+        outfile.write("FileSize: " + length)
+        outfile.write(end - start)
+        outfile.write("--------------------")
