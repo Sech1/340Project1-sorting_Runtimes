@@ -17,8 +17,8 @@ def main():
 def runAllPerm():
     spinnerThread = Thread(target=util.spinning_cursor)
     spinnerThread.start()
-    for x in range(len(testPermList)):
-        threadAlgo = Thread(target=ExecSortingAndTiming.exec_insertion_sort_perm, args=(testPermList[x],))
+    for x in range(len(smallPermList)):
+        threadAlgo = Thread(target=ExecSortingAndTiming.exec_insertion_sort_perm, args=(smallPermList[x],))
 
         threadAlgo.start()
         threadAlgo.join()
