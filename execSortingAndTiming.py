@@ -23,5 +23,6 @@ class ExecSortingAndTiming:
         end = time.time()
         outfile = open("outfile.txt", "w")
         outfile.write("FileSize: " + length)
-        outfile.write(end - start)
+        outTime = (end-start)
+        outfile.write(str(outTime))
         outfile.write("--------------------")
