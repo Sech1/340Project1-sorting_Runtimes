@@ -22,8 +22,7 @@ class ExecSortingAndTiming:
         start = time.time()
         InsertionSort.insertion_sort_algo(list)
         end = time.time()
-        for i in range(0, len(list)):
-            print(list[i])
-            count = count + 1
+        print("FileSize: " + length)
         print(end - start)
         print(count)
+        print("--------------------")
