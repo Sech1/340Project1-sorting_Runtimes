@@ -1,5 +1,6 @@
 import itertools
 import sys
+import time
 
 
 class util:
@@ -15,4 +16,5 @@ class util:
         while util.go:
             sys.stdout.write(next(spinner))  # write the next character
             sys.stdout.flush()  # flush stdout buffer (actual character display)
+            time.sleep(1)
             sys.stdout.write('\r')  # erase the last written char
