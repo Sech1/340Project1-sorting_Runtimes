@@ -18,8 +18,8 @@ def main():
         print("3. Heap Sort")
         while True:
             try:
-                exec = int(input("Which sorting algo to run? (1-3)"))
-                if 3 >= exec > 0:
+                execType = int(input("Which sorting algo to run? (1-3)"))
+                if 3 >= execType > 0:
                     break
             except:
                 print("Please type an integer (1-3)")
@@ -53,7 +53,7 @@ def main():
             except:
                 print("Please type an integer (1-11)")
 
-        if exec == 1:
+        if execType == 1:
             if listsToUse == 1:
                 sys.stdout.flush()
                 runAllPerm(length)
