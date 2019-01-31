@@ -10,8 +10,9 @@ class util:
 
     @classmethod
     def spinning_cursor(cls):
-        spinner = itertools.cycle(['-', '/', '|', '\\'])
+        spinner = itertools.cycle(['-Doing Algo Stuff. ', '/Doing Algo Stuff.. ',
+                                   '|Doing Algo Stuff... ', '\\Doing Algo Stuff.... '])
         while util.go:
             sys.stdout.write(next(spinner))  # write the next character
             sys.stdout.flush()  # flush stdout buffer (actual character display)
-            sys.stdout.write('\b')  # erase the last written char
+            sys.stdout.write('\r')  # erase the last written char
