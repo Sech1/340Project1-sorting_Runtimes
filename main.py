@@ -1,17 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from threading import Thread
-
-from execSortingAndTiming import *
-from util import *
-import sys
+from sortThreadHandler import *
 
 allPermList = ["15K", "30K", "45K", "60K", "75K", "90K", "105K", "120K", "135K", "150K"]
 
 
 def main():
     exitVar = False
-
+    listType = ""
     while not exitVar:
         print("1. Insert Sort")
         print("2. Merge Sort")
@@ -29,6 +25,10 @@ def main():
         while True:
             try:
                 listsToUse = int(input("Which list to use (1-2)"))
+                if listsToUse == 1:
+                    listType = "Perm"
+                elif listsToUse == 2:
+                    listType = "Sorted"
                 if 2 >= listsToUse > 0:
                     break
             except:
@@ -56,7 +56,16 @@ def main():
         if execType == 1:
             if listsToUse == 1:
                 sys.stdout.flush()
-                runAllPerm(length)
+                runAllPermInsert(length, listType)
+            elif listsToUse == 2:
+                sys.stdout.flush()
+                runAllSortedInsert(length, listType)
+        elif execType == 2:
+            if listsToUse == 1:
+                sys.stdout.flush()
+                runAllPermMerge(length, listType)
+            elif listsToUse == 2:
+                sys.stdout.flush()
 
         print("Exit? \n")
         while True:
@@ -69,24 +78,6 @@ def main():
                     break
             except:
                 print("Please type and integer (1,2)")
-
-
-def runAllPerm(count):
-    util.go = True
-    spinnerThread = Thread(target=util.spinning_cursor)
-    spinnerThread.start()
-    if count < 11:
-        threadAlgo = Thread(target=ExecSortingAndTiming.exec_insertion_sort_perm, args=(allPermList[count - 1],))
-        threadAlgo.start()
-        threadAlgo.join()
-    elif count == 11:
-        for x in range(len(allPermList)):
-            threadAlgo = Thread(target=ExecSortingAndTiming.exec_insertion_sort_perm, args=(allPermList[x],))
-            threadAlgo.start()
-            threadAlgo.join()
-
-    util.go = False
-    spinnerThread.join()
 
 
 if __name__ == '__main__':
