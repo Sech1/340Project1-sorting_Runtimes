@@ -4,6 +4,8 @@ from execSortingAndTiming import *
 from util import *
 
 
+# I'm not too stoked with this repeated code, but this was the easiest way to do this at the time.
+# Just a side note for myself
 class SortThreadHandler:
     allPermList = ["15K", "30K", "45K", "60K", "75K", "90K", "105K", "120K", "135K", "150K"]
 
@@ -86,6 +88,48 @@ def runAllSortedMerge(count, listType):
     elif count == 11:
         for x in range(len(SortThreadHandler.allPermList)):
             threadAlgo = Thread(target=ExecSortingAndTiming.exec_insertion_sort_sorted,
+                                args=(SortThreadHandler.allPermList[x],))
+            threadAlgo.start()
+            threadAlgo.join()
+
+    util.go = False
+    spinnerThread.join()
+
+
+def runAllPermHeap(count, listType):
+    util.go = True
+    spinnerThread = Thread(target=util.spinning_cursor)
+    spinnerThread.start()
+    if count < 11:
+        threadAlgo = Thread(target=ExecSortingAndTiming.exec_heap_sort_perm,
+                            args=(SortThreadHandler.allPermList[count - 1],
+                                  listType,))
+        threadAlgo.start()
+        threadAlgo.join()
+    elif count == 11:
+        for x in range(len(SortThreadHandler.allPermList)):
+            threadAlgo = Thread(target=ExecSortingAndTiming.exec_heap_sort_perm,
+                                args=(SortThreadHandler.allPermList[x],))
+            threadAlgo.start()
+            threadAlgo.join()
+
+    util.go = False
+    spinnerThread.join()
+
+
+def runAllSortedHeap(count, listType):
+    util.go = True
+    spinnerThread = Thread(target=util.spinning_cursor)
+    spinnerThread.start()
+    if count < 11:
+        threadAlgo = Thread(target=ExecSortingAndTiming.exec_heap_sort_perm,
+                            args=(SortThreadHandler.allPermList[count - 1],
+                                  listType,))
+        threadAlgo.start()
+        threadAlgo.join()
+    elif count == 11:
+        for x in range(len(SortThreadHandler.allPermList)):
+            threadAlgo = Thread(target=ExecSortingAndTiming.exec_heap_sort_perm,
                                 args=(SortThreadHandler.allPermList[x],))
             threadAlgo.start()
             threadAlgo.join()

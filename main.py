@@ -66,6 +66,13 @@ def main():
                 runAllPermMerge(length, listType)
             elif listsToUse == 2:
                 sys.stdout.flush()
+        elif execType == 3:
+            if listsToUse == 1:
+                sys.stdout.flush()
+                runAllPermHeap(length, listType)
+            elif listsToUse == 2:
+                sys.stdout.flush()
+                runAllSortedHeap(length, listType)
 
         print("Exit? \n")
         while True:
