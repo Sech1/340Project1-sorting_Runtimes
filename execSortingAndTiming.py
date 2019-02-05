@@ -30,7 +30,6 @@ class ExecSortingAndTiming:
             outfile.write("--------------------" + "\n")
             outfile.close()
         print("\n")
-        print(sort.input_file)
 
     @classmethod
     def exec_insertion_sort_sorted(cls, length, listType):
@@ -50,7 +49,6 @@ class ExecSortingAndTiming:
             outfile.write("--------------------" + "\n")
             outfile.close()
         print("\n")
-        print(sort.input_file)
 
     @classmethod
     def exec_merge_sort_perm(cls, length, listType):
@@ -71,7 +69,6 @@ class ExecSortingAndTiming:
             outfile.write("--------------------" + "\n")
             outfile.close()
         print("\n")
-        print(sort.input_file)
 
     @classmethod
     def exec_merge_sort_sorted(cls, length, listType):
@@ -92,7 +89,6 @@ class ExecSortingAndTiming:
             outfile.write("--------------------" + "\n")
             outfile.close()
         print("\n")
-        print(sort.input_file)
 
     @classmethod
     def exec_heap_sort_sorted(cls, length, listType):
@@ -113,7 +109,6 @@ class ExecSortingAndTiming:
             outfile.write("--------------------" + "\n")
             outfile.close()
         print("\n")
-        print(sort.input_file)
 
         with open('outfileBuildHeap.txt', 'a+') as outfile:
             outfile.write("Type: " + listType + " BuildHeap" + "\n")
@@ -143,7 +138,6 @@ class ExecSortingAndTiming:
             outfile.write("--------------------" + "\n")
             outfile.close()
         print("\n")
-        print(sort.input_file)
 
         with open('outfileBuildHeap.txt', 'a+') as outfile:
             outfile.write("Type: " + listType + " BuildHeap" + "\n")

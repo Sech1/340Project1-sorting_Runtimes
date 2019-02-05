@@ -25,7 +25,7 @@ def runAllPermInsert(count, listType):
     elif count == 11:
         for x in range(len(SortThreadHandler.allPermList)):
             threadAlgo = Thread(target=ExecSortingAndTiming.exec_insertion_sort_perm,
-                                args=(SortThreadHandler.allPermList[x],))
+                                args=(SortThreadHandler.allPermList[x], listType,))
             threadAlgo.start()
             threadAlgo.join()
 
@@ -46,7 +46,7 @@ def runAllSortedInsert(count, listType):
     elif count == 11:
         for x in range(len(SortThreadHandler.allPermList)):
             threadAlgo = Thread(target=ExecSortingAndTiming.exec_insertion_sort_sorted,
-                                args=(SortThreadHandler.allPermList[x],))
+                                args=(SortThreadHandler.allPermList[x], listType,))
             threadAlgo.start()
             threadAlgo.join()
 
@@ -67,7 +67,7 @@ def runAllPermMerge(count, listType):
     elif count == 11:
         for x in range(len(SortThreadHandler.allPermList)):
             threadAlgo = Thread(target=ExecSortingAndTiming.exec_insertion_sort_perm,
-                                args=(SortThreadHandler.allPermList[x],))
+                                args=(SortThreadHandler.allPermList[x], listType,))
             threadAlgo.start()
             threadAlgo.join()
 
@@ -88,7 +88,7 @@ def runAllSortedMerge(count, listType):
     elif count == 11:
         for x in range(len(SortThreadHandler.allPermList)):
             threadAlgo = Thread(target=ExecSortingAndTiming.exec_insertion_sort_sorted,
-                                args=(SortThreadHandler.allPermList[x],))
+                                args=(SortThreadHandler.allPermList[x], listType,))
             threadAlgo.start()
             threadAlgo.join()
 
@@ -109,7 +109,7 @@ def runAllPermHeap(count, listType):
     elif count == 11:
         for x in range(len(SortThreadHandler.allPermList)):
             threadAlgo = Thread(target=ExecSortingAndTiming.exec_heap_sort_perm,
-                                args=(SortThreadHandler.allPermList[x],))
+                                args=(SortThreadHandler.allPermList[x], listType,))
             threadAlgo.start()
             threadAlgo.join()
 
@@ -130,9 +130,26 @@ def runAllSortedHeap(count, listType):
     elif count == 11:
         for x in range(len(SortThreadHandler.allPermList)):
             threadAlgo = Thread(target=ExecSortingAndTiming.exec_heap_sort_perm,
-                                args=(SortThreadHandler.allPermList[x],))
+                                args=(SortThreadHandler.allPermList[x], listType,))
             threadAlgo.start()
             threadAlgo.join()
 
     util.go = False
     spinnerThread.join()
+
+
+def run_all_sorts():
+    print("Starting Insertion Sort: (Sorted)\n")
+    runAllSortedInsert(11, "Sorted")
+    print("Starting Insertion Sort: (Perm)\n")
+    runAllPermInsert(11, "Perm")
+    print("Starting Merge Sort: (Sorted)\n")
+    runAllSortedMerge(11, "Sorted")
+    print("Starting Merge Sort: (Perm)\n")
+    runAllPermMerge(11, "Perm")
+    print("Starting Heap Sort: (Sorted)\n")
+    runAllSortedHeap(11, "Sorted")
+    print("Starting Heap Sort: (Perm)\n")
+    runAllPermHeap(11, "Perm")
+    print("\n")
+    print("Done! ")
