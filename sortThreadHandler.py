@@ -66,7 +66,7 @@ def runAllPermMerge(count, listType):
         threadAlgo.join()
     elif count == 11:
         for x in range(len(SortThreadHandler.allPermList)):
-            threadAlgo = Thread(target=ExecSortingAndTiming.exec_insertion_sort_perm,
+            threadAlgo = Thread(target=ExecSortingAndTiming.exec_merge_sort_perm,
                                 args=(SortThreadHandler.allPermList[x], listType,))
             threadAlgo.start()
             threadAlgo.join()
@@ -87,7 +87,7 @@ def runAllSortedMerge(count, listType):
         threadAlgo.join()
     elif count == 11:
         for x in range(len(SortThreadHandler.allPermList)):
-            threadAlgo = Thread(target=ExecSortingAndTiming.exec_insertion_sort_sorted,
+            threadAlgo = Thread(target=ExecSortingAndTiming.exec_merge_sort_sorted,
                                 args=(SortThreadHandler.allPermList[x], listType,))
             threadAlgo.start()
             threadAlgo.join()
