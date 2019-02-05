@@ -72,7 +72,7 @@ class ExecSortingAndTiming:
 
     @classmethod
     def exec_merge_sort_sorted(cls, length, listType):
-        input_file = open('lists/permuted/perm' + length + '.txt').readlines()
+        input_file = open('lists/sorted/sorted' + length + '.txt').readlines()
         sort = MergeSort(input_file)
         for x in range(0, len(sort.input_file)):
             sort.input_file[x] = sort.input_file[x].strip('\n')

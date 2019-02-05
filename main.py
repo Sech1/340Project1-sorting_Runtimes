@@ -68,6 +68,7 @@ def main():
                     runAllPermMerge(length, listType)
                 elif listsToUse == 2:
                     sys.stdout.flush()
+                    runAllSortedMerge(length, listType)
             elif execType == 3:
                 if listsToUse == 1:
                     sys.stdout.flush()
