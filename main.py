@@ -91,5 +91,6 @@ def main():
         elif execType == 4:
             run_all_sorts()
 
+
 if __name__ == '__main__':
     main()

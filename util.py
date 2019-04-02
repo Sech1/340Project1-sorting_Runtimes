@@ -18,4 +18,3 @@ class util:
             sys.stdout.flush()  # flush stdout buffer (actual character display)
             time.sleep(.25)
             sys.stdout.write('\r')  # erase the last written char
-
